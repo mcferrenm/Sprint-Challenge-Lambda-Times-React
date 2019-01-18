@@ -1,7 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Button, Modal, ModalHeader, ModalFooter } from "reactstrap";
+import {
+  Button,
+  Label,
+  Input,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  FormGroup
+} from "reactstrap";
 
 class LoginModal extends React.Component {
   constructor(props) {
@@ -43,9 +52,19 @@ class LoginModal extends React.Component {
           <ModalHeader toggle={this.toggleModal}>
             Login to Lambda Times
           </ModalHeader>
+          <ModalBody>
+            <FormGroup>
+              <Label for="exampleEmail">Email</Label>
+              <Input type="email" name="email" id="exampleEmail" />
+            </FormGroup>
+            <FormGroup>
+              <Label for="examplePassword">Password</Label>
+              <Input type="password" name="password" id="examplePassword" />
+            </FormGroup>
+          </ModalBody>
           <ModalFooter>
             <Button color="primary" onClick={this.handleLogIn}>
-              Log In
+              Enter
             </Button>{" "}
             <Button color="secondary" onClick={this.toggleModal}>
               Cancel
