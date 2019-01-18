@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import Tabs from "./Tabs";
 import Cards from "./Cards";
 
-// Importing our tab and card data. No need to change anything here.
 import { tabData, cardData } from "../../data";
 
 export default class Content extends Component {
@@ -21,7 +20,6 @@ export default class Content extends Component {
   }
 
   changeSelected = tab => {
-    // this function should take in the tab and update the state with the new tab.
     this.setState({ selected: tab });
   };
 
