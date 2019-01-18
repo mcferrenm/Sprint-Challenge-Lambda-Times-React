@@ -27,6 +27,7 @@ class LoginModal extends React.Component {
   };
 
   handleLogIn = () => {
+    localStorage.setItem("username", "user");
     this.props.handleAuth();
     this.toggleModal();
   };

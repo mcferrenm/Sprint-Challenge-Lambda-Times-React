@@ -16,6 +16,12 @@ const authenticate = TopBar => Header => Content =>
       }));
     };
 
+    componentDidMount() {
+      if (localStorage.getItem("username")) {
+        this.authenticateUserToggle();
+      }
+    }
+
     render() {
       return (
         <Fragment>
