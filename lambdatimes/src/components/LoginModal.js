@@ -16,9 +16,17 @@ class LoginModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
+      email: "",
+      password: ""
     };
   }
+
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
 
   toggleModal = () => {
     this.setState({
@@ -26,8 +34,8 @@ class LoginModal extends React.Component {
     });
   };
 
-  handleLogIn = () => {
-    localStorage.setItem("username", "user");
+  handleLogin = () => {
+    localStorage.setItem("username", this.state.email);
     this.props.handleAuth();
     this.toggleModal();
   };
@@ -56,15 +64,27 @@ class LoginModal extends React.Component {
           <ModalBody>
             <FormGroup>
               <Label for="exampleEmail">Email</Label>
-              <Input type="email" name="email" id="exampleEmail" />
+              <Input
+                type="email"
+                name="email"
+                id="exampleEmail"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
             </FormGroup>
             <FormGroup>
               <Label for="examplePassword">Password</Label>
-              <Input type="password" name="password" id="examplePassword" />
+              <Input
+                type="password"
+                name="password"
+                id="examplePassword"
+                value={this.state.password}
+                onChange={this.handleChange}
+              />
             </FormGroup>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.handleLogIn}>
+            <Button color="primary" onClick={this.handleLogin}>
               Enter
             </Button>{" "}
             <Button color="secondary" onClick={this.toggleModal}>
