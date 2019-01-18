@@ -24,6 +24,7 @@ const TopBar = () => {
           <span>ANNOUNCEMENTS</span>
         </ContainerCenter>
         <ContainerRight>
+          {/* When clicked launch modal */}
           <span>LOG IN</span>
         </ContainerRight>
       </Container>

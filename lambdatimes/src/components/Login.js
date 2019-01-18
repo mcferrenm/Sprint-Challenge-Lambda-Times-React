@@ -7,29 +7,32 @@ class LoginModal extends React.Component {
     this.state = {
       modal: false
     };
-
-    this.toggle = this.toggle.bind(this);
   }
 
-  toggle() {
+  toggleModal = () => {
     this.setState({
       modal: !this.state.modal
     });
-  }
+  };
+
+  handleLogIn = () => {
+    this.props.handleAuthenticate();
+    this.toggleModal();
+  };
 
   render() {
     return (
       <div>
-        <Button color="danger" onClick={this.toggle}>
+        <Button color="danger" onClick={this.toggleModal}>
           {this.props.buttonLabel}
           Login
         </Button>
         <Modal
           isOpen={this.state.modal}
-          toggle={this.toggle}
+          toggle={this.toggleModal}
           className={this.props.className}
         >
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+          <ModalHeader toggle={this.toggleModal}>Modal title</ModalHeader>
           <ModalBody>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -40,10 +43,10 @@ class LoginModal extends React.Component {
             culpa qui officia deserunt mollit anim id est laborum.
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>
-              Do Something
+            <Button color="primary" onClick={this.handleLogIn}>
+              Log In
             </Button>{" "}
-            <Button color="secondary" onClick={this.toggle}>
+            <Button color="secondary" onClick={this.toggleModal}>
               Cancel
             </Button>
           </ModalFooter>
