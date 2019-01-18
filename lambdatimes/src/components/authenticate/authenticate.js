@@ -17,18 +17,6 @@ const authenticate = TopBar => Header => Content =>
     };
 
     render() {
-      if (this.state.isUserLoggedIn) {
-        return (
-          <Fragment>
-            <TopBar
-              handleAuth={this.authenticateUserToggle}
-              isUserLoggedIn={this.state.isUserLoggedIn}
-            />
-            <Header />
-            <Content />;
-          </Fragment>
-        );
-      }
       return (
         <Fragment>
           <TopBar
@@ -36,6 +24,7 @@ const authenticate = TopBar => Header => Content =>
             isUserLoggedIn={this.state.isUserLoggedIn}
           />
           <Header />
+          {this.state.isUserLoggedIn && <Content />}
         </Fragment>
       );
     }
