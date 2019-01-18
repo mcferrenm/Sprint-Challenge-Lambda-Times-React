@@ -11,21 +11,14 @@ const authenticate = Content => Login =>
     }
 
     authenticateUser = () => {
-      // this.setState({ isUserLoggedIn: true })
-      console.log("handleAuthenticate clicked");
+      this.setState({ isUserLoggedIn: true });
     };
 
     render() {
-      // if (this.state.isUserLoggedIn) {
-      //   return <Content />;
-      // }
-      // return <Login handleLogIn={this.setUserLogin}/>;
-      return (
-        <div>
-          <Login handleAuthenticate={this.authenticateUser} />
-          <Content />
-        </div>
-      );
+      if (this.state.isUserLoggedIn) {
+        return <Content />;
+      }
+      return <Login handleAuthenticate={this.authenticateUser} />;
     }
   };
 
