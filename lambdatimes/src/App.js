@@ -7,7 +7,7 @@ import Login from "./components/LoginModal";
 
 import authenticate from "./components/authenticate/authenticate";
 
-const ProtectedContent = authenticate(TopBar)(Header)(Content)(Login);
+const ProtectedContent = authenticate(TopBar)(Header)(Content);
 
 const App = () => {
   return (

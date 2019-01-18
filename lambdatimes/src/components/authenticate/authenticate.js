@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-const authenticate = TopBar => Header => Content => Login =>
+const authenticate = TopBar => Header => Content =>
   class extends React.Component {
     constructor(props) {
       super(props);
