@@ -1,5 +1,7 @@
 import React from "react";
 
+import LoginModal from "./LoginModal";
+
 import {
   TopBarWrapper,
   Container,
@@ -8,7 +10,7 @@ import {
   ContainerRight
 } from "./Styles/TopBar/TopBarStyles";
 
-const TopBar = () => {
+const TopBar = props => {
   return (
     <TopBarWrapper>
       <Container>
@@ -24,8 +26,7 @@ const TopBar = () => {
           <span>ANNOUNCEMENTS</span>
         </ContainerCenter>
         <ContainerRight>
-          {/* When clicked launch modal */}
-          <span>LOG IN</span>
+          <LoginModal handleAuth={props.handleAuth} />
         </ContainerRight>
       </Container>
     </TopBarWrapper>

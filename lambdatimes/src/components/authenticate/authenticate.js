@@ -1,6 +1,6 @@
-import React from "react";
+import React, { Fragment } from "react";
 
-const authenticate = Content => Login =>
+const authenticate = TopBar => Header => Content => Login =>
   class extends React.Component {
     constructor(props) {
       super(props);
@@ -16,9 +16,20 @@ const authenticate = Content => Login =>
 
     render() {
       if (this.state.isUserLoggedIn) {
-        return <Content />;
+        return (
+          <Fragment>
+            <TopBar />
+            <Header />
+            <Content />;
+          </Fragment>
+        );
       }
-      return <Login handleAuthenticate={this.authenticateUser} />;
+      return (
+        <Fragment>
+          <TopBar handleAuth={this.authenticateUser} />
+          <Header />
+        </Fragment>
+      );
     }
   };
 

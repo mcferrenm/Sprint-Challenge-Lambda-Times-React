@@ -16,7 +16,7 @@ class LoginModal extends React.Component {
   };
 
   handleLogIn = () => {
-    this.props.handleAuthenticate();
+    this.props.handleAuth();
     this.toggleModal();
   };
 
