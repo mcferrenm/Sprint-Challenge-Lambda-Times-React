@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import { Button, Modal, ModalHeader, ModalFooter } from "reactstrap";
 
 class LoginModal extends React.Component {
@@ -23,10 +25,16 @@ class LoginModal extends React.Component {
   render() {
     return (
       <div>
-        <Button color="danger" onClick={this.toggleModal}>
-          {this.props.buttonLabel}
-          Login
-        </Button>
+        {this.props.isUserLoggedIn ? (
+          <Button color="danger" onClick={this.props.handleAuth}>
+            Logout
+          </Button>
+        ) : (
+          <Button color="danger" onClick={this.toggleModal}>
+            Login
+          </Button>
+        )}
+
         <Modal
           isOpen={this.state.modal}
           toggle={this.toggleModal}
@@ -48,5 +56,10 @@ class LoginModal extends React.Component {
     );
   }
 }
+
+LoginModal.propTypes = {
+  isUserLoggedIn: PropTypes.bool,
+  handleAuth: PropTypes.func
+};
 
 export default LoginModal;
