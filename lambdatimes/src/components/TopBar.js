@@ -1,4 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
+
+import LoginModal from "./LoginModal";
 
 import {
   TopBarWrapper,
@@ -8,7 +11,7 @@ import {
   ContainerRight
 } from "./Styles/TopBar/TopBarStyles";
 
-const TopBar = () => {
+const TopBar = props => {
   return (
     <TopBarWrapper>
       <Container>
@@ -24,11 +27,19 @@ const TopBar = () => {
           <span>ANNOUNCEMENTS</span>
         </ContainerCenter>
         <ContainerRight>
-          <span>LOG IN</span>
+          <LoginModal
+            handleAuth={props.handleAuth}
+            isUserLoggedIn={props.isUserLoggedIn}
+          />
         </ContainerRight>
       </Container>
     </TopBarWrapper>
   );
+};
+
+TopBar.propTypes = {
+  isUserLoggedIn: PropTypes.bool,
+  handleAuth: PropTypes.func
 };
 
 export default TopBar;
